@@ -1,0 +1,21 @@
+{
+  "_lee_esto": "Único sitio donde viven el dominio, la URL de la newsletter y el formulario. Cambia aquí y corre: python3 tools/sync.py",
+  "site": {
+    "nombre": "Centinela",
+    "base_url": "https://centinelaresearch.com",
+    "newsletter_url": "https://centinelaresearch.beehiiv.com/"
+  },
+  "contacto": {
+    "_nota": "Email para ejercer derechos RGPD. Mientras esté vacío, el aviso de privacidad no se publica y el formulario no puede conectarse.",
+    "email": "centinelaresearch@gmail.com"
+  },
+  "form": {
+    "_nota": "endpoint = URL /exec de la aplicación web de Apps Script. El token tiene que ser idéntico al TOKEN de apps-script/Codigo.gs.",
+    "endpoint": "https://script.google.com/macros/s/AKfycbycBob6IgrVoHU1HLW7bqMX-vSrh1Ol3hlp9c5VtVwLPTYi0iDaLJmTbeh-A6fG3feM2Q/exec",
+    "token": "CKuMmMpDeD7BCH3ehNko3cBCScgvyMXm",
+    "aviso_version": "v1 · septiembre 2026"
+  },
+  "legal": {
+    "responsable": "Centinela Research"
+  }
+}

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- #include head -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estrategia · Centinela</title>
+  <meta name="description" content="El método completo de Centinela: diversificación por ciclos, momentum relativo, filtro de tendencia y rebalanceo mensual. Cinco bloques y el rendimiento del backtest 2020–2026 con activos reales, frente al 60/40 y al SPY." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0A0E14" />
+  <link rel="canonical" href="https://centinelaresearch.com/estrategia" />
+  <link rel="alternate" hreflang="es" href="https://centinelaresearch.com/estrategia" />
+  <link rel="alternate" hreflang="en" href="https://centinelaresearch.com/en/strategy" />
+  <link rel="alternate" hreflang="it" href="https://centinelaresearch.com/it/strategia" />
+  <link rel="alternate" hreflang="de" href="https://centinelaresearch.com/de/strategie" />
+  <link rel="alternate" hreflang="x-default" href="https://centinelaresearch.com/estrategia" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Centinela" />
+  <meta property="og:title" content="Estrategia · Centinela" />
+  <meta property="og:description" content="Diversificación por ciclos, momentum, filtro de tendencia y rebalanceo mensual. Un método completo, con reglas claras." />
+  <meta property="og:url" content="https://centinelaresearch.com/estrategia" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="it_IT" />
+  <meta property="og:locale:alternate" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (SVG inline: escudo/centinela) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0E14'/%3E%3Cpath d='M16 5l8 3v7c0 5-3.4 9.2-8 11-4.6-1.8-8-6-8-11V8l8-3z' fill='none' stroke='%233FB8AE' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M16 12v8M12 16h8' stroke='%233FB8AE' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <!-- Sin JS no hay reveal-on-scroll: el contenido tiene que verse igual. -->
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+  <script src="/assets/js/main.js" defer></script>
+  <!-- #endinclude head -->
+</head>
+<body>
+  <div class="bg-field" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--1"></div>
+    <div class="bg-glow bg-glow--2"></div>
+    <div class="bg-grain"></div>
+  </div>
+
+  <!-- #include nav -->
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="top">
+    <a class="nav__brand" href="/" aria-label="Centinela — inicio">
+      <svg class="nav__mark" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 4l9 3.4v7.7c0 5.6-3.8 10.3-9 12.2-5.2-1.9-9-6.6-9-12.2V7.4L16 4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M16 11.5v9M11.5 16h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span>Centinela</span>
+    </a>
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/newsletter" data-nav="newsletter">Newsletter</a>
+      <a href="/estrategia" data-nav="estrategia" aria-current="page">Estrategia</a>
+      <a href="/sobre-centinela" data-nav="sobre">Sobre Centinela</a>
+    </nav>
+    <nav class="lang" aria-label="Idioma">
+      <span class="lang__item" aria-current="true" lang="es" title="Español">ES</span>
+      <a class="lang__item" href="/en/strategy" hreflang="en" lang="en" title="English" aria-label="English">EN</a>
+      <a class="lang__item" href="/it/strategia" hreflang="it" lang="it" title="Italiano" aria-label="Italiano">IT</a>
+      <a class="lang__item" href="/de/strategie" hreflang="de" lang="de" title="Deutsch" aria-label="Deutsch">DE</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--solid" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Empezar gratis</a>
+    </div>
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="nav__mobile" hidden>
+    <a href="/" data-nav="home">Home</a>
+    <a href="/newsletter" data-nav="newsletter">Newsletter</a>
+    <a href="/estrategia" data-nav="estrategia" aria-current="page">Estrategia</a>
+    <a href="/sobre-centinela" data-nav="sobre">Sobre Centinela</a>
+    <a class="btn btn--solid" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Empezar gratis</a>
+  </div>
+  <!-- #endinclude nav -->
+
+  <main>
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="tag reveal">La estrategia</span>
+        <h1 class="page-hero__title reveal">Un método completo, <em>con reglas claras.</em></h1>
+        <p class="page-hero__lead reveal">
+          Centinela parte de una idea simple: ningún activo funciona bien siempre.
+          Por eso trabajamos con bloques que responden de forma distinta a cada régimen
+          económico y, sobre esa base, aplicamos señales de momentum, filtros de tendencia
+          y rebalanceos disciplinados con criterios explícitos.
+        </p>
+        <div class="page-hero__cta reveal">
+          <a class="btn btn--solid" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Empezar gratis</a>
+          <a class="btn btn--line" href="/#empezar">Ver Centinela Access</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CICLOS ===================== -->
+    <section class="section metodo section--tight" id="ciclos">
+      <div class="wrap">
+        <span class="tag reveal">Diversificación por ciclos</span>
+        <h2 class="section__title reveal">Cuatro regímenes, una sola estrategia.</h2>
+        <p class="section__lead reveal">
+          Cada bloque responde a un entorno económico distinto. La lógica parte de una idea
+          simple, inspirada en el <em>Dragon Portfolio</em> de Artemis Capital: construir
+          una estrategia capaz de adaptarse mejor a distintos momentos del ciclo.
+        </p>
+        <div class="cycles">
+          <article class="cycle reveal">
+            <h3>Crecimiento</h3>
+            <p>Expansión sostenida con inflación contenida. La exposición se orienta a renta variable global.</p>
+          </article>
+          <article class="cycle reveal">
+            <h3>Recesión / deflación</h3>
+            <p>Contracción del crédito y huida a calidad. Los bonos del Tesoro y los TIPS actúan como refugio y amortiguan las caídas del riesgo.</p>
+          </article>
+          <article class="cycle reveal">
+            <h3>Inflación / devaluación</h3>
+            <p>Pérdida de poder adquisitivo de la moneda. Oro, plata, cobre y materias primas ayudan a preservar valor real.</p>
+          </article>
+          <article class="cycle reveal">
+            <h3>Volatilidad extrema</h3>
+            <p>Crisis, correcciones severas y eventos de cola. Las coberturas long-vol aportan protección adicional en escenarios de estrés.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PILARES ===================== -->
+    <section class="section metodo section--tight" id="pilares">
+      <div class="wrap">
+        <div class="pillars">
+          <span class="tag reveal">El método</span>
+          <h2 class="section__title reveal">Cuatro pilares que dan forma a la estrategia.</h2>
+          <ol class="pillars__list" style="margin-top:1.6rem">
+            <li class="reveal"><span class="pillars__n">1</span><div><b>Diversificación por ciclos.</b> Cinco bloques permanentes que responden a distintos regímenes económicos, para que la estrategia no dependa de un único escenario.</div></li>
+            <li class="reveal"><span class="pillars__n">2</span><div><b>Selección por momentum relativo.</b> Dentro de cada bloque seleccionamos los tres activos con mayor fuerza relativa, medida con una ventana de 6 meses.</div></li>
+            <li class="reveal"><span class="pillars__n">3</span><div><b>Filtro de tendencia.</b> Si un activo pierde su tendencia, se sustituye temporalmente por treasuries cortos (SHY) hasta que recupera fuerza. Así reducimos exposición cuando el contexto se deteriora.</div></li>
+            <li class="reveal"><span class="pillars__n">4</span><div><b>Rebalanceo mensual.</b> La estrategia se revisa con reglas explícitas y alertas automáticas. Un proceso sistemático, disciplinado y sin decisiones improvisadas.</div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LOS 5 BLOQUES ===================== -->
+    <section class="section bloques section--tight" id="bloques">
+      <div class="wrap">
+        <span class="tag reveal">La cartera</span>
+        <h2 class="section__title reveal">Cinco bloques, un solo objetivo.</h2>
+        <p class="section__lead reveal">Cada bloque cubre un régimen distinto. Estos son sus ETFs representativos.</p>
+        <div class="blocks">
+          <article class="block reveal">
+            <div class="block__head"><h3>Equity</h3><span class="block__w">24%</span></div>
+            <p class="block__role">Crecimiento global</p>
+            <div class="block__bar"><i style="--w:24%"></i></div>
+            <p class="tickers">SPY · EWJ · EWP · +7 ETFs</p>
+          </article>
+          <article class="block reveal">
+            <div class="block__head"><h3>Long Vol</h3><span class="block__w">21%</span></div>
+            <p class="block__role">Descorrelación (CTA)</p>
+            <div class="block__bar"><i style="--w:21%"></i></div>
+            <p class="tickers">DBMF · managed futures</p>
+          </article>
+          <article class="block reveal">
+            <div class="block__head"><h3>Hard Assets</h3><span class="block__w">19%</span></div>
+            <p class="block__role">Inflación / reservas</p>
+            <div class="block__bar"><i style="--w:19%"></i></div>
+            <p class="tickers">GLD · SLV · CPER · BTC</p>
+          </article>
+          <article class="block reveal">
+            <div class="block__head"><h3>Bonds</h3><span class="block__w">18%</span></div>
+            <p class="block__role">Recesión / deflación</p>
+            <div class="block__bar"><i style="--w:18%"></i></div>
+            <p class="tickers">SHY · IEF · TLT · TIP · LQD</p>
+          </article>
+          <article class="block reveal">
+            <div class="block__head"><h3>Cmdty Trend</h3><span class="block__w">18%</span></div>
+            <p class="block__role">Momentum materias primas</p>
+            <div class="block__bar"><i style="--w:18%"></i></div>
+            <p class="tickers">DBC · tendencia commodities</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RENDIMIENTO ===================== -->
+    <section class="section rendimiento section--tight" id="rendimiento">
+      <div class="wrap">
+        <span class="tag reveal">Rendimiento</span>
+        <h2 class="section__title reveal">El mercado en modo pánico. Tu estrategia no.</h2>
+        <p class="section__lead reveal">
+          Métricas del backtest <strong>2020–2026</strong> con activos reales
+          y rebalanceo mensual, frente a una cartera <strong>60/40</strong> y al
+          <strong>S&amp;P 500 (SPY)</strong>. Las cifras muestran una rentabilidad
+          competitiva con una volatilidad y un drawdown sensiblemente menores.
+        </p>
+        <div class="perf perf--solo">
+          <div class="metrics reveal">
+            <div class="metrics__scroll">
+              <table class="metrics__table">
+                <thead>
+                  <tr><th>Métrica · 2020–2026</th><th>Centinela</th><th>60/40</th><th>SPY</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Rentabilidad (CAGR)</td><td>+14,0%</td><td>+9,7%</td><td>+15,7%</td></tr>
+                  <tr><td>Volatilidad</td><td class="pos">11,0%</td><td>12,4%</td><td>20,3%</td></tr>
+                  <tr><td>Sharpe</td><td class="pos">1,05</td><td>0,58</td><td>0,65</td></tr>
+                  <tr><td>Sortino</td><td class="pos">1,29</td><td>0,73</td><td>0,80</td></tr>
+                  <tr><td>Calmar</td><td class="pos">1,04</td><td>0,45</td><td>0,46</td></tr>
+                  <tr><td>Máximo drawdown</td><td class="pos">−13,4%</td><td>−21,5%</td><td class="neg">−33,7%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="metrics__note">
+              Backtest 2020–2026 (6,5 años, RF 2,5%) con activos reales: DBMF (CTA),
+              ETFs de Equity y Bonds, GLD·SLV·CPER·BTC y DBC. Rebalanceo mensual, sin
+              look-ahead. El 60/40 y el SPY (S&amp;P 500) son referencias de mercado, no el
+              benchmark oficial de la estrategia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- #include footer -->
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <a class="nav__brand" href="/">
+          <svg class="nav__mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 4l9 3.4v7.7c0 5.6-3.8 10.3-9 12.2-5.2-1.9-9-6.6-9-12.2V7.4L16 4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M16 11.5v9M11.5 16h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Centinela</span>
+        </a>
+        <p class="footer__by">Con el apoyo de <strong>SFinance</strong>.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Pie de página">
+        <a href="/newsletter">Newsletter</a>
+        <a href="/estrategia">Estrategia</a>
+        <a href="/sobre-centinela">Sobre Centinela</a>
+        <a href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Empezar gratis</a>
+      </nav>
+    </div>
+    <div class="wrap footer__legal">
+      <div class="disclaimer">
+        <h3>Renuncia de responsabilidad</h3>
+        <p>
+          Toda la información y opiniones ofrecidas en esta página, nuestros newsletters y
+          posts tienen un carácter totalmente divulgativo o informativo y no constituyen una
+          asesoría de inversión.
+        </p>
+        <p class="disclaimer__ref">Real Decreto-Ley 14/2018, de 28 de septiembre · Real Decreto 1464/2018, de 21 de diciembre.</p>
+        <p>
+          El equipo de Centinela Research no se responsabiliza del uso inadecuado que se haga
+          de dicha información y opiniones. Antes de invertir en una cuenta real personal y/o
+          profesional, es necesario completar la información adecuada o delegar la tarea en un
+          profesional debidamente cualificado para ello.
+        </p>
+        <p>
+          Las rentabilidades pasadas y los resultados de backtest no garantizan rentabilidades
+          futuras. Invertir conlleva riesgo de pérdida de capital.
+        </p>
+        <p class="disclaimer__strong">Por tu bien, no inviertas si no sabes lo que estás haciendo.</p>
+      </div>
+      <p class="footer__copy">© <span id="year">2026</span> Centinela. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <!-- #endinclude footer -->
+</body>
+</html>

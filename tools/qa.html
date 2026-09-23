@@ -1,0 +1,67 @@
+<!doctype html>
+<!--
+  QA de desbordamiento horizontal. Carga una página en iframes de varios anchos
+  (Chrome headless no baja de 500px de ventana) y comprueba scrollWidth === clientWidth.
+
+  python3 tools/serve.py &
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+    --virtual-time-budget=8000 --dump-dom "http://localhost:4242/tools/qa.html?u=/en/strategy"
+
+  Resultado en <pre id="out">: una línea por ancho, OK u OVERFLOW con los elementos culpables.
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>QA overflow</title>
+<style>body { margin: 0; font: 13px monospace; } iframe { display: block; border: 0; height: 900px; }</style>
+</head>
+<body>
+<pre id="out">pendiente</pre>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var url = params.get('u') || '/';
+  var anchos = (params.get('w') || '320,375,780,961,1440').split(',').map(Number);
+  var lineas = [];
+  var pendientes = anchos.length;
+
+  function culpables(doc, ancho) {
+    var out = [];
+    doc.querySelectorAll('body *').forEach(function (el) {
+      if (el.closest('.bg-field, .hp')) return;
+      var r = el.getBoundingClientRect();
+      if (r.width === 0 || r.right <= ancho + 0.5) return;
+      // Dentro de un contenedor con scroll propio (tabla de métricas) no cuenta.
+      for (var p = el.parentElement; p && p !== doc.body; p = p.parentElement) {
+        var ox = doc.defaultView.getComputedStyle(p).overflowX;
+        if (ox !== 'visible') return;
+      }
+      out.push(el.tagName.toLowerCase() + (el.className && typeof el.className === 'string' ? '.' + el.className.trim().replace(/\s+/g, '.') : '') + ' → ' + Math.round(r.right));
+    });
+    return out.slice(0, 6);
+  }
+
+  anchos.forEach(function (ancho) {
+    var f = document.createElement('iframe');
+    f.style.width = ancho + 'px';
+    f.onload = function () {
+      // ?open=1 despliega todos los <details> (aviso de privacidad, mini-gráficos).
+      if (params.get('open')) f.contentDocument.querySelectorAll('details').forEach(function (x) { x.open = true; });
+      setTimeout(function () {
+        var d = f.contentDocument, de = d.documentElement;
+        var ok = de.scrollWidth <= de.clientWidth;
+        var extra = ok ? '' : ' (' + de.scrollWidth + ' > ' + de.clientWidth + ') ' + culpables(d, de.clientWidth).join(' | ');
+        lineas.push([ancho, ancho + 'px ' + (ok ? 'OK' : 'OVERFLOW') + extra]);
+        if (--pendientes === 0) {
+          lineas.sort(function (a, b) { return a[0] - b[0]; });
+          document.getElementById('out').textContent = url + '\n' + lineas.map(function (l) { return l[1]; }).join('\n');
+        }
+      }, 1200);
+    };
+    f.src = url;
+    document.body.appendChild(f);
+  });
+})();
+</script>
+</body>
+</html>

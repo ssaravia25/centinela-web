@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- #include head -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Centinela · Inversión sistemática multi-activo</title>
+  <meta name="description" content="Una forma más clara de invertir. Estrategia sistemática multi-activo, ETFs de bajo coste y una lectura estructurada del mercado para invertir con más criterio. Empieza gratis." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0A0E14" />
+  <link rel="canonical" href="https://centinelaresearch.com/" />
+  <link rel="alternate" hreflang="es" href="https://centinelaresearch.com/" />
+  <link rel="alternate" hreflang="en" href="https://centinelaresearch.com/en/" />
+  <link rel="alternate" hreflang="it" href="https://centinelaresearch.com/it/" />
+  <link rel="alternate" hreflang="de" href="https://centinelaresearch.com/de/" />
+  <link rel="alternate" hreflang="x-default" href="https://centinelaresearch.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Centinela" />
+  <meta property="og:title" content="Centinela · Inversión sistemática multi-activo" />
+  <meta property="og:description" content="Una forma más clara de invertir. Estrategia sistemática, ETFs de bajo coste y una lectura estructurada del mercado." />
+  <meta property="og:url" content="https://centinelaresearch.com/" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="it_IT" />
+  <meta property="og:locale:alternate" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (SVG inline: escudo/centinela) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0E14'/%3E%3Cpath d='M16 5l8 3v7c0 5-3.4 9.2-8 11-4.6-1.8-8-6-8-11V8l8-3z' fill='none' stroke='%233FB8AE' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M16 12v8M12 16h8' stroke='%233FB8AE' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <!-- Sin JS no hay reveal-on-scroll: el contenido tiene que verse igual. -->
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+  <script src="/assets/js/main.js" defer></script>
+  <!-- #endinclude head -->
+</head>
+<body>
+  <!-- Fondo atmosférico: rejilla de radar + glows -->
+  <div class="bg-field" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--1"></div>
+    <div class="bg-glow bg-glow--2"></div>
+    <div class="bg-grain"></div>
+  </div>
+
+  <!-- #include nav -->
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="top">
+    <a class="nav__brand" href="/" aria-label="Centinela — inicio">
+      <svg class="nav__mark" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 4l9 3.4v7.7c0 5.6-3.8 10.3-9 12.2-5.2-1.9-9-6.6-9-12.2V7.4L16 4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M16 11.5v9M11.5 16h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span>Centinela</span>
+    </a>
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a href="/" data-nav="home" aria-current="page">Home</a>
+      <a href="/newsletter" data-nav="newsletter">Newsletter</a>
+      <a href="/estrategia" data-nav="estrategia">Estrategia</a>
+      <a href="/sobre-centinela" data-nav="sobre">Sobre Centinela</a>
+    </nav>
+    <nav class="lang" aria-label="Idioma">
+      <span class="lang__item" aria-current="true" lang="es" title="Español">ES</span>
+      <a class="lang__item" href="/en/" hreflang="en" lang="en" title="English" aria-label="English">EN</a>
+      <a class="lang__item" href="/it/" hreflang="it" lang="it" title="Italiano" aria-label="Italiano">IT</a>
+      <a class="lang__item" href="/de/" hreflang="de" lang="de" title="Deutsch" aria-label="Deutsch">DE</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--solid" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Empezar gratis</a>
+    </div>
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="nav__mobile" hidden>
+    <a href="/" data-nav="home" aria-current="page">Home</a>
+    <a href="/newsletter" data-nav="newsletter">Newsletter</a>
+    <a href="/estrategia" data-nav="estrategia">Estrategia</a>
+    <a href="/sobre-centinela" data-nav="sobre">Sobre Centinela</a>
+    <a class="btn btn--solid" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Empezar gratis</a>
+  </div>
+  <!-- #endinclude nav -->
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="eyebrow reveal" data-d="0">Inversión sistemática multi-activo</p>
+        <h1 class="hero__title reveal" data-d="1">
+          Una forma más clara<br /><em>de invertir.</em>
+        </h1>
+        <p class="hero__lead reveal" data-d="2">
+          En Centinela compartimos una visión sistemática de la inversión, basada en
+          ETFs de bajo coste y una lectura estructurada del mercado, para ayudarte a
+          entender mejor cómo invertir y gestionar el riesgo con más criterio.
+        </p>
+        <div class="hero__cta reveal" data-d="3">
+          <a class="btn btn--solid btn--lg" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Ir a la newsletter</a>
+          <a class="btn btn--line btn--lg" href="/estrategia">Entender la estrategia</a>
+        </div>
+
+        <div class="hero__stats reveal" data-d="4">
+          <div class="stat">
+            <span class="stat__num pos">+14,0%</span>
+            <span class="stat__lbl">Centinela · CAGR anual (2020–2026)</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">−13,4%</span>
+            <span class="stat__lbl">Máx. caída · SPY −33,7%</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">1,05</span>
+            <span class="stat__lbl">Sharpe · SPY 0,65</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROBLEMA ===================== -->
+    <section class="section problema" id="problema">
+      <div class="wrap">
+        <span class="tag reveal">El problema</span>
+        <h2 class="section__title reveal">La mayoría invierte con menos claridad de la que cree.</h2>
+        <p class="section__lead reveal">
+          Muchos inversores acaban en productos con comisiones elevadas, decisiones poco
+          estructuradas o estrategias que no terminan de entender. Entre tanta oferta,
+          tanto ruido y tan poco tiempo, invertir con criterio se vuelve más difícil de
+          lo que debería.
+        </p>
+        <ul class="cards cards--3">
+          <li class="card reveal">
+            <span class="card__idx">01</span>
+            <h3>Fondos caros</h3>
+            <p>Productos de gestión activa que rara vez superan al mercado a largo plazo, pero mantienen estructuras de costes elevadas.</p>
+          </li>
+          <li class="card reveal">
+            <span class="card__idx">02</span>
+            <h3>Exceso de ruido</h3>
+            <p>Demasiada información, demasiadas opciones y poco contexto para decidir con calma y con criterio.</p>
+          </li>
+          <li class="card reveal">
+            <span class="card__idx">03</span>
+            <h3>Sin tiempo ni método</h3>
+            <p>Personas con interés real por invertir mejor, pero sin el tiempo o la profundidad técnica para construir una rutina sólida por su cuenta.</p>
+          </li>
+        </ul>
+        <div class="cta-row reveal">
+          <a class="btn btn--line" href="#que-es">Descubre cómo lo hacemos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUÉ ES ===================== -->
+    <section class="section estrategia" id="que-es">
+      <div class="wrap grid-2">
+        <div class="grid-2__text">
+          <span class="tag reveal">Qué es Centinela</span>
+          <h2 class="section__title reveal">Una estrategia para ayudarte a invertir con método.</h2>
+          <p class="section__lead reveal">
+            Centinela es una estrategia de inversión multi-activo diseñada para combinar
+            ETFs low cost, metodología propia, disciplina y una lectura estructurada del
+            mercado. Compartimos la lógica detrás de cada decisión para que entiendas
+            qué se hace y por qué.
+          </p>
+          <a class="btn btn--line reveal" href="/estrategia">Entender la estrategia</a>
+        </div>
+        <ul class="feature-list reveal">
+          <li><span class="feature-list__dot"></span> Estrategia sistemática, basada en reglas.</li>
+          <li><span class="feature-list__dot"></span> ETFs líquidos y de bajo coste.</li>
+          <li><span class="feature-list__dot"></span> Transparencia y actualización continua.</li>
+          <li><span class="feature-list__dot"></span> Metodología propia y reglas claras.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== CÓMO FUNCIONA ===================== -->
+    <section class="section metodo" id="metodo">
+      <div class="wrap">
+        <span class="tag reveal">Cómo funciona</span>
+        <h2 class="section__title reveal">Diseñada para distintos entornos económicos.</h2>
+        <p class="section__lead reveal">
+          Ningún activo funciona bien siempre. Por eso la cartera combina bloques que
+          responden de forma diferente al crecimiento, la recesión, la inflación y los
+          episodios de volatilidad extrema. Sobre esa base se aplican señales de momentum,
+          filtros de tendencia y rebalanceos disciplinados, con reglas claras y
+          seguimiento continuo.
+        </p>
+
+        <div class="cycles">
+          <article class="cycle reveal">
+            <h3>Crecimiento</h3>
+            <p>Expansión sostenida con inflación contenida. Se capta vía renta variable global.</p>
+            <details class="cycle__more">
+              <summary>Ver comportamiento</summary>
+              <div class="cycle__chart">
+                <svg viewBox="0 0 240 90" role="img" aria-label="En crecimiento, la renta variable sube de forma sostenida">
+                  <line x1="12" y1="78" x2="228" y2="78" stroke="rgba(180,205,220,0.14)" stroke-width="1"/>
+                  <polyline points="12,70 52,62 92,55 132,44 172,33 212,20 228,13" fill="none" stroke="#57C98A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="228" cy="13" r="3" fill="#57C98A"/>
+                </svg>
+                <p class="cycle__cap">La <b style="color:#57C98A">renta variable</b> global lidera cuando la economía crece.</p>
+              </div>
+            </details>
+          </article>
+          <article class="cycle reveal">
+            <h3>Recesión / deflación</h3>
+            <p>Contracción del crédito y huida a calidad. Los bonos actúan de refugio.</p>
+            <details class="cycle__more">
+              <summary>Ver comportamiento</summary>
+              <div class="cycle__chart">
+                <svg viewBox="0 0 240 90" role="img" aria-label="En recesión, la bolsa cae y los bonos suben como refugio">
+                  <line x1="12" y1="78" x2="228" y2="78" stroke="rgba(180,205,220,0.14)" stroke-width="1"/>
+                  <polyline points="12,26 52,35 92,46 132,56 172,64 212,70 228,73" fill="none" stroke="#E07A72" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="12,58 52,52 92,45 132,37 172,29 212,21 228,17" fill="none" stroke="#3FB8AE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="cycle__cap">Los <b style="color:#3FB8AE">bonos</b> hacen de refugio mientras la <b style="color:#E07A72">bolsa</b> cae.</p>
+              </div>
+            </details>
+          </article>
+          <article class="cycle reveal">
+            <h3>Inflación / devaluación</h3>
+            <p>El papel moneda se erosiona. Oro y materias primas preservan valor real.</p>
+            <details class="cycle__more">
+              <summary>Ver comportamiento</summary>
+              <div class="cycle__chart">
+                <svg viewBox="0 0 240 90" role="img" aria-label="Con inflación, el oro y las materias primas suben mientras el efectivo pierde valor">
+                  <line x1="12" y1="78" x2="228" y2="78" stroke="rgba(180,205,220,0.14)" stroke-width="1"/>
+                  <polyline points="12,64 52,56 92,47 132,37 172,27 212,17 228,13" fill="none" stroke="#C9A96A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="12,34 228,60" fill="none" stroke="#7C8794" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+                </svg>
+                <p class="cycle__cap">El <b style="color:#C9A96A">oro y las materias primas</b> preservan valor mientras el <b style="color:#7C8794">efectivo</b> se erosiona.</p>
+              </div>
+            </details>
+          </article>
+          <article class="cycle reveal">
+            <h3>Volatilidad extrema</h3>
+            <p>Crisis y cisnes negros. Las coberturas funcionan como un seguro en eventos extremos.</p>
+            <details class="cycle__more">
+              <summary>Ver comportamiento</summary>
+              <div class="cycle__chart">
+                <svg viewBox="0 0 240 90" role="img" aria-label="En un crash, la bolsa se hunde y las coberturas se disparan al alza">
+                  <line x1="12" y1="78" x2="228" y2="78" stroke="rgba(180,205,220,0.14)" stroke-width="1"/>
+                  <polyline points="12,24 60,22 100,30 128,58 150,70 190,66 228,67" fill="none" stroke="#E07A72" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="12,58 60,56 100,51 128,30 150,15 190,21 228,24" fill="none" stroke="#3FB8AE" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="150" cy="15" r="3" fill="#3FB8AE"/>
+                </svg>
+                <p class="cycle__cap">Las <b style="color:#3FB8AE">coberturas</b> se disparan justo cuando la <b style="color:#E07A72">bolsa</b> se hunde: actúan como un seguro.</p>
+              </div>
+            </details>
+          </article>
+        </div>
+
+        <div class="pillars">
+          <h3 class="pillars__title reveal">Los cuatro pilares del método</h3>
+          <ol class="pillars__list">
+            <li class="reveal"><span class="pillars__n">1</span><div><b>Diversificación por ciclos.</b> Bloques permanentes que cubren cada régimen económico.</div></li>
+            <li class="reveal"><span class="pillars__n">2</span><div><b>Selección por momentum.</b> Dentro de cada bloque, los activos con mayor fuerza relativa.</div></li>
+            <li class="reveal"><span class="pillars__n">3</span><div><b>Filtro de tendencia.</b> Si un activo se deteriora, se reduce riesgo hasta que recupera fuerza.</div></li>
+            <li class="reveal"><span class="pillars__n">4</span><div><b>Rebalanceo mensual.</b> Revisión con reglas explícitas y alertas automáticas.</div></li>
+          </ol>
+        </div>
+
+        <div class="cta-row reveal">
+          <a class="btn btn--line" href="/estrategia">Entender el método completo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CÓMO EMPEZAR / PLANES ===================== -->
+    <section class="section planes" id="empezar">
+      <div class="wrap">
+        <span class="tag reveal">Cómo empezar</span>
+        <h2 class="section__title reveal">Dos formas de entrar en Centinela.</h2>
+        <p class="section__lead reveal">
+          Empieza con la newsletter gratuita para entender la filosofía y el contexto de
+          mercado. Cuando quieras acercarte más a la estrategia, pasa a
+          <em>Centinela Access</em>.
+        </p>
+
+        <div class="plans">
+          <article class="plan reveal">
+            <header class="plan__head">
+              <h3>Newsletter</h3>
+              <p class="plan__price"><span>Gratis</span></p>
+            </header>
+            <p class="plan__desc">La puerta de entrada a Centinela. Breve, clara y útil para entender el mercado y construir una cartera con más criterio.</p>
+            <ul class="plan__list">
+              <li>La filosofía: ciclos, momentum y volatilidad</li>
+              <li>El contexto de mercado, sin recomendaciones</li>
+              <li>«Desmontando mitos» de la inversión</li>
+              <li>KPIs de la estrategia</li>
+            </ul>
+            <a class="btn btn--line btn--block" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Empezar gratis</a>
+          </article>
+
+          <article class="plan plan--pro reveal">
+            <span class="plan__badge">Premium</span>
+            <header class="plan__head">
+              <h3>Centinela Access</h3>
+              <p class="plan__price"><span>25€</span><small>/mes · 180€/año en promoción</small></p>
+            </header>
+            <p class="plan__desc">Para quien ya no quiere solo aprender, sino seguir la estrategia, las carteras y su evolución.</p>
+            <ul class="plan__list">
+              <li>Seguimiento de las carteras</li>
+              <li>Rebalanceo mensual y pesos objetivo de la cartera</li>
+              <li>Cambios de posicionamiento y su racional</li>
+              <li>Acceso a la lógica operativa de la estrategia</li>
+              <li>Recepción de alertas y órdenes para seguir la estrategia</li>
+              <li>Acceso a la comunidad Centinela</li>
+            </ul>
+            <a class="btn btn--solid btn--block" href="/waitlist" data-cta="access">Solicitar acceso</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- #include footer -->
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <a class="nav__brand" href="/">
+          <svg class="nav__mark" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 4l9 3.4v7.7c0 5.6-3.8 10.3-9 12.2-5.2-1.9-9-6.6-9-12.2V7.4L16 4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M16 11.5v9M11.5 16h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Centinela</span>
+        </a>
+        <p class="footer__by">Con el apoyo de <strong>SFinance</strong>.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Pie de página">
+        <a href="/newsletter">Newsletter</a>
+        <a href="/estrategia">Estrategia</a>
+        <a href="/sobre-centinela">Sobre Centinela</a>
+        <a href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Empezar gratis</a>
+      </nav>
+    </div>
+    <div class="wrap footer__legal">
+      <div class="disclaimer">
+        <h3>Renuncia de responsabilidad</h3>
+        <p>
+          Toda la información y opiniones ofrecidas en esta página, nuestros newsletters y
+          posts tienen un carácter totalmente divulgativo o informativo y no constituyen una
+          asesoría de inversión.
+        </p>
+        <p class="disclaimer__ref">Real Decreto-Ley 14/2018, de 28 de septiembre · Real Decreto 1464/2018, de 21 de diciembre.</p>
+        <p>
+          El equipo de Centinela Research no se responsabiliza del uso inadecuado que se haga
+          de dicha información y opiniones. Antes de invertir en una cuenta real personal y/o
+          profesional, es necesario completar la información adecuada o delegar la tarea en un
+          profesional debidamente cualificado para ello.
+        </p>
+        <p>
+          Las rentabilidades pasadas y los resultados de backtest no garantizan rentabilidades
+          futuras. Invertir conlleva riesgo de pérdida de capital.
+        </p>
+        <p class="disclaimer__strong">Por tu bien, no inviertas si no sabes lo que estás haciendo.</p>
+      </div>
+      <p class="footer__copy">© <span id="year">2026</span> Centinela. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <!-- #endinclude footer -->
+</body>
+</html>

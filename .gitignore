@@ -1,0 +1,15 @@
+.vercel/
+.DS_Store
+*.log
+Thumbs.db
+.idea/
+.vscode/
+.vercel
+__pycache__/
+
+# Material interno: no va al repo público (GitHub Pages sirve todo lo que hay en la rama)
+/CLAUDE.md
+/Centinela-Web-Proceso.md
+/apps-script/
+/WEB CENTINELA COMMENTS TONI.docx
+/Captura de pantalla 2026-07-31 a la(s) 10.14.18.png

@@ -1,0 +1,58 @@
+# Publica la web en GitHub Pages en cada push a main.
+#
+# Sube SOLO los archivos del sitio: partials/, tools/ y las notas internas se
+# quedan en el repo pero no se sirven. Es el sustituto de .vercelignore, que en
+# GitHub Pages no existe: lo que está en la rama publicada, se puede descargar.
+name: Publicar web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Comprobar que el HTML está sincronizado con partials/ y la config
+        run: python3 tools/sync.py --check
+
+      - name: Reunir solo los archivos de la web
+        run: |
+          mkdir -p _site/en _site/it _site/de
+          cp -R assets _site/
+          cp index.html estrategia.html newsletter.html sobre-centinela.html waitlist.html 404.html robots.txt sitemap.xml _site/
+          for d in en it de; do cp "$d"/*.html "_site/$d/"; done
+
+      - name: Comprobar que no se ha colado material interno
+        run: |
+          if find _site \( -name '*.md' -o -name '*.docx' -o -name '*.gs' -o -name '*.py' -o -name 'site.config.json' \) | grep .; then
+            echo "::error::Se ha colado material interno en la carpeta publicada"
+            exit 1
+          fi
+          echo "Archivos a publicar: $(find _site -type f | wc -l)"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

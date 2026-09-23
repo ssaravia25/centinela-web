@@ -1,0 +1,31 @@
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="top">
+  <a class="nav__brand" href="/en/" aria-label="Centinela — home">
+    <svg class="nav__mark" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 4l9 3.4v7.7c0 5.6-3.8 10.3-9 12.2-5.2-1.9-9-6.6-9-12.2V7.4L16 4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M16 11.5v9M11.5 16h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span>Centinela</span>
+  </a>
+  <nav class="nav__links" aria-label="Main navigation">
+    <a href="/en/" data-nav="home">Home</a>
+    <a href="/en/newsletter" data-nav="newsletter">Newsletter</a>
+    <a href="/en/strategy" data-nav="estrategia">Strategy</a>
+    <a href="/en/about" data-nav="sobre">About Centinela</a>
+  </nav>
+  {{lang_switcher}}
+  <div class="nav__actions">
+    <a class="btn btn--solid" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Start for free</a>
+  </div>
+  <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="nav__mobile" hidden>
+  <a href="/en/" data-nav="home">Home</a>
+  <a href="/en/newsletter" data-nav="newsletter">Newsletter</a>
+  <a href="/en/strategy" data-nav="estrategia">Strategy</a>
+  <a href="/en/about" data-nav="sobre">About Centinela</a>
+  <a class="btn btn--solid" href="https://centinelaresearch.beehiiv.com/" data-cta="substack">Start for free</a>
+</div>
