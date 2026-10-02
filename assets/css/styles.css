@@ -5,7 +5,7 @@
    Tipografía: Spectral (display) · Hanken Grotesk (texto) · IBM Plex Mono (datos)
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* ---- Color ---- */
@@ -222,10 +222,10 @@ a.lang__item:hover { color: var(--ink); }
 }
 .hero__title { font-size: clamp(2.6rem, 1.3rem + 6vw, 5.4rem); letter-spacing: -0.025em; margin-bottom: 1.6rem; }
 .hero__title em { font-style: italic; color: var(--accent-2); }
-.hero__lead { max-width: 62ch; margin: 0 auto 2.4rem; color: var(--ink-2); font-size: clamp(1.02rem, 0.98rem + 0.4vw, 1.18rem); }
+.hero__lead { max-width: 62ch; margin: 0 auto 3.2rem; color: var(--ink-2); font-size: clamp(1.02rem, 0.98rem + 0.4vw, 1.18rem); }
 
-.hero__join { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2.2rem; }
-.hero__promo { max-width: 48ch; font-size: 0.9rem; line-height: 1.5; color: var(--ink-2); }
+.hero__join { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 3.4rem; }
+.hero__promo { max-width: 46ch; font-size: 0.8rem; font-style: italic; line-height: 1.55; color: var(--ink-3); }
 
 .hero__stats {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
