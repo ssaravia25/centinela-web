@@ -224,7 +224,8 @@ a.lang__item:hover { color: var(--ink); }
 .hero__title em { font-style: italic; color: var(--accent-2); }
 .hero__lead { max-width: 62ch; margin: 0 auto 2.4rem; color: var(--ink-2); font-size: clamp(1.02rem, 0.98rem + 0.4vw, 1.18rem); }
 
-.hero__cta { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.6rem; }
+.hero__join { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2.2rem; }
+.hero__promo { max-width: 48ch; font-size: 0.9rem; line-height: 1.5; color: var(--ink-2); }
 
 .hero__stats {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
